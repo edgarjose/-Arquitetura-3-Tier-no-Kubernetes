@@ -19,10 +19,7 @@ spec:
           image: phpmyadmin/phpmyadmin:latest
           env:
             - name: PMA_HOST
-              valueFrom:
-                configMapKeyRef:
-                  name: phpmyadmin-configmap
-                  key: database_url
+              value: mysql-service
             - name: PMA_PORT
               value: "3306"
             - name: PMA_USER
@@ -37,4 +34,3 @@ spec:
                   key: mysql-root-password
           ports:
             - containerPort: 80
-
